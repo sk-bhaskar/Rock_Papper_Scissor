@@ -1,0 +1,41 @@
+#code
+
+import java.util.Random;
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+        // Use Scanner object to read user input
+        Scanner scanner = new Scanner(System.in);
+
+        // Use Random object to generate computer choice
+        Random random = new Random();
+
+        // Options for the game
+        String[] options = {"Rock", "Paper", "Scissors"};
+
+        // Ask the player for their choice
+        System.out.print("Enter Rock, Paper, or Scissors: ");
+        String playerChoice = scanner.nextLine();
+
+        // Generate a random choice for the computer
+        int computerChoiceIndex = random.nextInt(3);  // Random number between 0 and 2
+        String computerChoice = options[computerChoiceIndex];
+
+        // Show choices
+        System.out.println("You chose: " + playerChoice);
+        System.out.println("Computer chose: " + computerChoice);
+
+        // Determine the winner
+        if (playerChoice.equalsIgnoreCase(computerChoice)) {
+            System.out.println("It's a tie!");
+        } else if ((playerChoice.equalsIgnoreCase("Rock") && computerChoice.equals("Scissors")) ||
+                   (playerChoice.equalsIgnoreCase("Scissors") && computerChoice.equals("Paper")) ||
+                   (playerChoice.equalsIgnoreCase("Paper") && computerChoice.equals("Rock"))) {
+            System.out.println("You win!");
+        } else {
+            System.out.println("Computer wins!");
+        }
+    }
+}
